@@ -23,13 +23,12 @@ class InterfaceAgenda():
         self.cursor.execute(sql_busca)
         busca_agenda = self.cursor.fetchall()
         self.lstagenda.clear()
-        for nome in busca_agenda:
-            id = nome[0]
-            nome = nome[1]
-            telefone = nome[2]
-            lista_pergunta = (id, nome,telefone)
+        for i in busca_agenda:
+            cod = str(i[0])
+            nome = i[1]
+            telefone = i[2]
+            lista_pergunta = (cod, nome,telefone)
             self.lstagenda.append(lista_pergunta)
-
 
     def onDestroy(self, *args):
         Gtk.main_quit()
